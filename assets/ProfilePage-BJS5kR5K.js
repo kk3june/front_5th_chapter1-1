@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const l of document.querySelectorAll('link[rel="modulepreload"]'))n(l);new MutationObserver(l=>{for(const o of l)if(o.type==="childList")for(const d of o.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&n(d)}).observe(document,{childList:!0,subtree:!0});function s(l){const o={};return l.integrity&&(o.integrity=l.integrity),l.referrerPolicy&&(o.referrerPolicy=l.referrerPolicy),l.crossOrigin==="use-credentials"?o.credentials="include":l.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(l){if(l.ep)return;l.ep=!0;const o=s(l);fetch(l.href,o)}})();function m(e){localStorage.setItem("user",JSON.stringify(e)),a("/profile")}function p(){localStorage.removeItem("user"),a("/login")}function r(){return JSON.parse(localStorage.getItem("user"))}function g(e){localStorage.setItem("user",JSON.stringify(e))}function v(){return`
+(function(){const l=document.createElement("link").relList;if(l&&l.supports&&l.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const s of t)if(s.type==="childList")for(const o of s.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function n(t){const s={};return t.integrity&&(s.integrity=t.integrity),t.referrerPolicy&&(s.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?s.credentials="include":t.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(t){if(t.ep)return;t.ep=!0;const s=n(t);fetch(t.href,s)}})();function c(e){localStorage.setItem("user",JSON.stringify(e))}function u(){localStorage.removeItem("user")}function r(){return JSON.parse(localStorage.getItem("user"))}function b(e){localStorage.setItem("user",JSON.stringify(e))}function f(){return`
 		<main class="bg-gray-100 flex items-center justify-center min-h-screen">
 			<div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
 				<h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -19,10 +19,10 @@
 					<button class="bg-green-500 text-white px-4 py-2 rounded font-bold">새 계정 만들기</button>
 				</div>
 			</div>
-		</main>`}function u(){return`
+		</main>`}function i(){return`
 		<footer class="bg-gray-200 p-4 text-center">
 			<p>&copy; 2024 항해플러스. All rights reserved.</p>
-		</footer>`}function f(e){return`
+		</footer>`}function d(e){return`
 		<header class="bg-blue-600 text-white p-4 sticky top-0">
 			<h1 class="text-2xl font-bold">항해플러스</h1>
 		</header>
@@ -36,10 +36,10 @@
 			
 			</ul>
 		</nav>
-		`}function x(){return`
+		`}function m(){return`
 		<div class="bg-gray-100 min-h-screen flex justify-center">
 			<div class="max-w-md w-full">
-				${f("/")}
+				${d("/")}
 
 				<main class="p-4">
 					<div class="mb-4 bg-white rounded-lg shadow p-4">
@@ -131,9 +131,9 @@
 					</div>
 				</main>
 
-				${u()}
+				${i()}
 			</div>
-		</div>`}function h(){return`
+		</div>`}function p(){return`
 		<main class="bg-gray-100 flex items-center justify-center min-h-screen">
 			<div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
 				<h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -146,11 +146,11 @@
 					홈으로 돌아가기
 				</a>
 			</div>
-		</main>`}function y(){const e=r();return`
+		</main>`}function x(){const e=r();return`
 		<div id="root">
 			<div class="bg-gray-100 min-h-screen flex justify-center">
 				<div class="max-w-md w-full">
-					${f("/profile")}
+					${d("/profile")}
 
 					<main class="p-4">
 						<div class="bg-white p-8 rounded-lg shadow-md">
@@ -211,8 +211,8 @@
 						</div>
 					</main>
 
-					${u()}
+					${i()}
 				</div>
 			</div>
 		</div>
-		`}const i={"/":x,"/profile":y,"/login":v,"*":h};function c(){const e=window.location.pathname;let t;const s=r();s&&e==="/login"?t=i["/"]:!s&&e==="/profile"?t=i["/login"]:t=i[e]||i["*"];const n=document.querySelector("#root");n.innerHTML=t(),b()}function w(){const e=window.location.hash.slice(1)||"/";let t;const s=r();s&&e==="/login"?t=i["/"]:!s&&e==="/profile"?t=i["/login"]:t=i[e]||i["*"];const n=document.querySelector("#root");n.innerHTML=t(),b()}function L(e){e.target.matches("[data-link]")?e.preventDefault():e.target.href.includes("#")&&(e.preventDefault(),p()),a(e.target.href)}function a(e){window.history.pushState({},"",e),c()}function $(){window.addEventListener("popstate",c),window.addEventListener("hashchange",w),document.body.addEventListener("click",L),c()}function b(){const e=document.getElementById("login-form");e&&e.addEventListener("submit",s=>{s.preventDefault();const{username:n}=s.target.elements;m({username:n.value,email:"",bio:""}),a("/profile")});const t=document.getElementById("profile-form");t&&t.addEventListener("submit",s=>{s.preventDefault();const{username:n,email:l,bio:o}=s.target.elements;g({username:n.value,email:l.value,bio:o.value})})}function S(){$()}S();
+		`}export{f as L,m as M,p as N,x as P,c as a,r as g,u as l,b as u};
